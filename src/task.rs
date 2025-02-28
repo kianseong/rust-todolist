@@ -1,4 +1,6 @@
-#[derive(Debug)]
+use serde::{Serialize};
+
+#[derive(Debug, Serialize)]
 pub struct Task {
     pub id: u32,
     pub description: String,
@@ -15,7 +17,7 @@ impl Task {
 
     }
 
-    pub fn mark_completed(&mut self) {
+    pub fn mark_complete(&mut self) {
         self.completed = true;
     }
 }
