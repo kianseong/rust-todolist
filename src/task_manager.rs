@@ -44,4 +44,11 @@ impl TaskManager {
 
         Ok(())
     }
+
+    pub fn load_from_file(filename: &str) -> io::Result<Self> {
+        let json = fs::read_to_string(filename)?;
+        let tasks = serde_json::from_str(&json)?;
+
+        Ok(Self { tasks })
+    }
 }
